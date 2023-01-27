@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    CSS.registerProperty({
+      name: '--borderRadius',
+      syntax: '<number>',
+      inherits: false,
+      initialValue: 10
+    });
+    CSS.registerProperty({
+      name: '--bgColor',
+      syntax: '<color>',
+      inherits: false,
+      initialValue: 'red'
+    });
+  </script>
+  <style>
+    .radius-reverse {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 200px;
+      background: paint(border-radius-reverse);
+      animation: ani 2s linear infinite;
+    }
+
+    @keyframes ani {
+      from {--borderRadius: 0;--bgColor: red;}
+      50% {--borderRadius: 30;--bgColor: yellow;}
+      to {--borderRadius: 0;--bgColor: red;}
+    }
+  </style>
+</head>
+<body>
+  <div class="radius-reverse">
+    painting动画
+  </div>
+  <script> 
+    CSS.paintWorklet.addModule('border-radius-reverse.js');
+</script>  
+</body>
+</html>

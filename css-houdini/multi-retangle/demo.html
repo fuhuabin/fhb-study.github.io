@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .my-div {
+      width: 400px;
+      height: 300px;
+      border: 1px solid red;
+      background: paint(multiRetangle);
+    }
+  </style>
+</head>
+<body>
+  <div class="my-div">
+
+  </div>
+  <script>
+    if ('paintWorklet' in CSS) {
+      CSS.paintWorklet.addModule('multi-retangle.js');
+    } else {
+      document.body.innerHTML = 'You need support for <a href="https://drafts.css-houdini.org/css-paint-api/">CSS Paint API</a> to view this demo :(';
+    }
+  </script>
+</body>
+</html>
